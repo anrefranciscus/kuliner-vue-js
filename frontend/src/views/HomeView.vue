@@ -14,8 +14,8 @@
         </div>
       </div>
 
-      <div class="row mb-3">
-        <div class="col-md-4 mt-d" v-for="(product, index) in products" :key="index">
+      <div class="row mb-4">
+        <div class="col-md-3 mt-4" v-for="(product, index) in products" :key="index">
           <card-product :product="product "/>
         </div>
       </div>
@@ -27,7 +27,7 @@
 
 
 import CardProduct from "@/components/CardProduct.vue";
-import axios from "axios";
+import FoodService from "@/usecases/FoodService";
 
 export default {
   name: 'HomeView',
@@ -38,11 +38,11 @@ export default {
     }
   },
   methods: {
-    setProduct() {
-      const url = `http://localhost:3000/api/v1/food/get-all`
-      axios.get(url)
-          .then((res) => {this.products = res.data})
-          .catch((err) => {console.log(err)})
+    async setProduct() {
+      const response = await FoodService.get()
+      if(response.status === 200) {
+        this.products = response.data
+      }
     }
   },
   mounted() {

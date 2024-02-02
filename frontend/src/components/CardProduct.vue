@@ -1,13 +1,15 @@
 <template>
-  <div>
-    <div class="card">
-      <img src="" class="card-img-top" alt="image-food"/>
+    <div class="card shadow card-product">
+      <img :src="image" class="card-img-top" alt="image-food"/>
       <div class="card-body">
         <h5 class="card-title">{{product.foodName}}</h5>
-        <p class="card-text">{{product.price}}</p>
+        <p class="card-text">Harga: Rp. {{product.price}}</p>
+        <router-link to="/pesan" class="btn btn-success">
+          <b-icon-cart></b-icon-cart>
+          Pesan
+        </router-link>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -17,6 +19,11 @@ export default {
     product: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    image() {
+      return `assets/images/${this.product.images}`
     }
   }
 }
