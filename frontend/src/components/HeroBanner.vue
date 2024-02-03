@@ -8,7 +8,7 @@
             <div class="justify-content-center align-self-center">
               <h2><strong>Delicious Food Menu,</strong> <br/>in your Gadget</h2>
               <p>Ayo segerah pilih dan pesan makanan favorit anda</p>
-              <router-link to="to" class="btn btn-lg btn-success">
+              <router-link to="/food" class="btn btn-lg btn-success">
                 <b-icon-arrow-right></b-icon-arrow-right>
                 Pesan
               </router-link>
@@ -33,7 +33,7 @@
             <div class="justify-content-center align-self-center">
               <h2><strong>Delicious Food Menu,</strong> <br/>in your Gadget</h2>
               <p>Ayo segerah pilih dan pesan makanan favorit anda</p>
-              <router-link to="to" class="btn btn-lg btn-success">
+              <router-link to="/food" class="btn btn-lg btn-success">
                 <b-icon-arrow-right></b-icon-arrow-right>
                 Pesan
               </router-link>

@@ -4,7 +4,7 @@
       <div class="card-body">
         <h5 class="card-title">{{product.foodName}}</h5>
         <p class="card-text">Harga: Rp. {{product.price}}</p>
-        <router-link to="/pesan" class="btn btn-success">
+        <router-link :to="`/food/${product.id}`" class="btn btn-success">
           <b-icon-cart></b-icon-cart>
           Pesan
         </router-link>

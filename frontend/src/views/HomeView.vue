@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <div class="container">
-
+      <hero-banner/>
       <div class="row mt-4">
         <div class="col">
           <h2 class="">Best <strong>Food</strong></h2>
         </div>
         <div class="col">
-          <router-link to="/foods" class="btn btn-success float-right">
+          <router-link to="/food" class="btn btn-success float-right">
             <b-icon-eye></b-icon-eye>
             Lihat Semua
           </router-link>
@@ -27,26 +27,22 @@
 
 
 import CardProduct from "@/components/CardProduct.vue";
-import FoodService from "@/usecases/FoodService";
+import HeroBanner from "@/components/HeroBanner.vue";
+import {mapActions} from "vuex";
 
 export default {
   name: 'HomeView',
-  components: {CardProduct},
-  data() {
-    return {
-      products: []
+  components: {HeroBanner, CardProduct},
+  computed: {
+    products(){
+      return this.$store.getters["product/productList"]
     }
   },
   methods: {
-    async setProduct() {
-      const response = await FoodService.get()
-      if(response.status === 200) {
-        this.products = response.data
-      }
-    }
+    ...mapActions({fetchProduct: "product/fetchAllProducts"})
   },
   mounted() {
-    this.setProduct()
+    this.fetchProduct()
   }
 }
 </script>
